@@ -1,9 +1,11 @@
 "use strict";
 
-// TODO: firebase認証入れる
+import { firebase, db } from "../firebase";
 
 const FirebaseTools = () => {
   return 0;
 };
 
-export default FirebaseTools;
+export {
+  FirebaseTools
+}

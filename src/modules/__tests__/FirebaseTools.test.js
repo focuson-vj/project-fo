@@ -1,5 +1,5 @@
 import FirebaseTools from "../FirebaseTools";
 
-test('Modules', () => {
+test('Add a data', () => {
   expect(FirebaseTools()).toBe(0);
 });
