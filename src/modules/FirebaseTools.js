@@ -1,17 +1,16 @@
 "use strict";
 
-import { db } from "../firebase";
+import { firebase, db } from "../firebase";
 
-const FirebaseTools = (id, doc_id) => {
-  db.collection(id)
-    .doc(doc_id)
-    .set({
-      push: 1,
+const FirebaseTools = (_id, doc_id) => {
+  let counterRef = db.collection(_id).doc(doc_id);
+  counterRef.update({
+      push: 0,
       pull: true,
-      count: 0
+      count: firebase.firestore.FieldValue.increment(1)
     })
-    .then(function(docRef) {
-      console.log("Document written with ID: ", docRef.id);
+    .then(function() {
+      console.log("Document written!");
     }).catch(function(error) {
       console.error("Error adding document: ", error);
     });
