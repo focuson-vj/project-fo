@@ -1,5 +1,7 @@
 import FirebaseTools from "../FirebaseTools";
 
-test('Add a data', () => {
-  expect(FirebaseTools()).toBe(0);
+describe('Add a data', () => {
+  test('Add a data', () => {
+    expect(FirebaseTools("action", "new-doc")).toBe("Set data!");
+  });
 });
