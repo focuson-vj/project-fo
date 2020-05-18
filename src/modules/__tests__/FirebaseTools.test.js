@@ -1,7 +1,8 @@
 import FirebaseTools from "../FirebaseTools";
 
 describe('Add a data', () => {
-  test('Add a data', () => {
-    expect(FirebaseTools("action", "new-doc")).toBe("Document written!");
+  test('Increment a data.', async () => {
+    const data = await FirebaseTools("action", "new-doc");
+    expect(data).toBe("hehehe");
   });
 });
