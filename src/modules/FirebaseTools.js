@@ -29,6 +29,11 @@ const Slider = () => {
   return 0;
 };
 
+// BPM情報をFirestoreに格納する関数
+const bpmSender = () => {
+  return 0;
+};
+
 // bpm情報を待ち受けてonSnapshotで受け取って
 // 値をstoreに格納する関数
 const bpmReceiver = () => {
