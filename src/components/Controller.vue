@@ -1,56 +1,99 @@
 <template>
   <v-container>
-    <v-row class="text-center">
-      <v-col class="mb-4" cols="12">
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Focus On!
-        </h1>
-
-        <p class="subheading font-weight-regular">
-          Interactive VJ System for Focus On!
-        </p>
-      </v-col>
-
-      <v-col v-for="(button, index) in buttons" :key="index" cols="3">
-        <v-btn
-          class="mx-2"
-          dark
-          small
-          :color="button.color"
-          @click="increment(index)"
-        >
-          <v-icon dark>mdi-heart</v-icon>
-          <span>{{ count[index] }}</span>
-        </v-btn>
+    <v-row v-for="(row, rIdx) in buttons" :key="row.id" class="button-row">
+      <v-col
+        v-for="(col, cIdx) in row.cols"
+        :key="cIdx"
+        cols="3"
+        class="button-col"
+      >
+        <div class="button" @click="btnPush(rIdx, cIdx)">
+          <div class="button-inner">
+            <!-- ここに画像などを入れる -->
+          </div>
+        </div>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
+<style scoped>
+.button-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+  padding: 20px;
+}
+.button {
+  vertical-align: middle;
+  height: 100%;
+  /* border: 1px solid blue; */
+  border-radius: 18px;
+  background-color: #157246;
+  position: relative;
+}
+.button-col {
+  height: 100%;
+  /* ボタン間のマージン */
+  padding: 2px 2px;
+}
+.button-row {
+  height: calc(calc(100vh - 110px) / 6);
+  /* 横のマージン */
+  padding: 0px 10px;
+}
+</style>
+
 <script>
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 
 export default {
   name: 'Controller',
 
   data: () => ({
     buttons: [
-      { color: 'pink' },
-      { color: 'green' },
-      { color: 'orange' },
-      { color: 'blue' },
+      {
+        id: 1,
+        cols: ['あ', 'い', 'う', 'え'],
+      },
+      {
+        id: 2,
+        cols: ['あ', 'い', 'う', 'え'],
+      },
+      {
+        id: 3,
+        cols: ['あ', 'い', 'う', 'え'],
+      },
+      {
+        id: 4,
+        cols: ['あ', 'い', 'う', 'え'],
+      },
+      {
+        id: 5,
+        cols: ['あ', 'い', 'う', 'え'],
+      },
+      {
+        id: 6,
+        cols: ['あ', 'い', 'う', 'え'],
+      },
     ],
   }),
-  computed: {
-    ...mapState(['count']),
-  },
+  // computed: {
+  //   ...mapState(['count']),
+  // },
   methods: {
-    increment(index) {
-      this.$store.dispatch('increment', index)
+    // increment(index) {
+    //   this.$store.dispatch('increment', index)
+    // },
+    btnPush(rIdx, cIdx) {
+      // ここにボタンが押されたときの処理
+      console.log(`button pushed: (${rIdx}, ${cIdx})`)
     },
   },
-  beforeMount: function() {
-    this.$store.dispatch('init', 4)
-  },
+  // beforeMount: function() {
+  //   this.$store.dispatch('init', 4)
+  // },
 }
 </script>
