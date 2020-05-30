@@ -20,17 +20,20 @@
     <v-content>
       <Controller />
     </v-content>
+    <Infomation />
   </v-app>
 </template>
 
 <script>
 import Controller from './components/Controller'
+import Infomation from './components/Information'
 
 export default {
   name: 'App',
 
   components: {
     Controller,
+    Infomation,
   },
 
   data: () => ({
