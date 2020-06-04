@@ -44,5 +44,6 @@ export default {
   IncrementParam,
   ChangeEffect,
   Slider,
+  bpmSender,
   bpmReceiver
 };
