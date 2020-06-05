@@ -33,7 +33,7 @@
     <v-app-bar app right dark>
       <!-- アプリケーションバー -->
       <v-avatar>
-        <img src=".\assets\focuson_logo.jpg" alt="Logo of Focus On!" />
+        <img src="./assets/focuson_logo.jpg" alt="Logo of Focus On!" />
       </v-avatar>
       <v-toolbar-title style=" margin: 0 auto;"
         >Interactive VJ System</v-toolbar-title
