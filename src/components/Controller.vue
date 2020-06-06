@@ -49,6 +49,8 @@
 <script>
 // import { mapState } from 'vuex'
 import FirebaseTools from "../modules/FirebaseTools";
+import { mapState } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'Controller',
@@ -82,15 +84,19 @@ export default {
     ],
     seed: 1.0,
   }),
-  // computed: {
-  //   ...mapState(['count']),
-  // },
+  
+  computed: {
+    ...mapState(['count', 'bpm']),
+  },
 
   created: function() {
     this.seed = Math.random() * 100;
+    this.getBpmData();
+    console.log("bpm is: " + this.bpm);
   },
 
   methods: {
+    ...mapActions(['getBpmData']),
     // increment(index) {
     //   this.$store.dispatch('increment', index)
     // },
