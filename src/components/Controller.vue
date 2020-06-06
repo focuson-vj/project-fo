@@ -49,6 +49,7 @@
 <script>
 // import { mapState } from 'vuex'
 import FirebaseTools from "../modules/FirebaseTools";
+import { mapState } from 'vuex';
 
 export default {
   name: 'Controller',
@@ -80,32 +81,28 @@ export default {
         cols: ['あ', 'い', 'う', 'え'],
       },
     ],
+    seed: 1.0,
   }),
-  // computed: {
-  //   ...mapState(['count']),
-  // },
+  
+  computed: {
+    ...mapState(['count', 'bpm']),
+  },
+
+  created: function() {
+    this.$store.dispatch('getBpmData');
+    console.log("bpm is: " + this.bpm);
+  },
 
   methods: {
     // increment(index) {
     //   this.$store.dispatch('increment', index)
     // },
 
-    getRandomInt(max) {
-      return Math.floor(Math.random() * Math.floor(max));
-    },
-
     btnPush(rIdx, cIdx) {
-      // ここにボタンが押されたときの処理
+      console.log(this.bpm);
       console.log(`button pushed: (${rIdx}, ${cIdx})`);
-      // TODO: 各ボタンに、ランダムに関数を適用する
-      // TODO: 実行時にボタンに割り当てる関数を決定したい
       let basenum = rIdx * 4 + cIdx;
-      let idx = Math.floor((basenum * Math.random()) % 5);
-      if(idx == 0) FirebaseTools.IncrementParam("action", "obj1");
-      if(idx == 1) FirebaseTools.IncrementParam("action", "obj2");
-      if(idx == 2) FirebaseTools.IncrementParam("action", "obj3");
-      if(idx == 3) FirebaseTools.IncrementParam("action", "obj4");
-      if(idx == 4) FirebaseTools.IncrementParam("action", "obj5");
+      FirebaseTools.IncrementParam("action", "obj" + (basenum + 1));
     },
   },
   // beforeMount: function() {
