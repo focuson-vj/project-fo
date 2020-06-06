@@ -89,7 +89,6 @@ export default {
   },
 
   created: function() {
-    this.seed = Math.random() * 100;
     this.$store.dispatch('getBpmData');
     console.log("bpm is: " + this.bpm);
   },
@@ -99,16 +98,11 @@ export default {
     //   this.$store.dispatch('increment', index)
     // },
 
-    getRandomInt(max) {
-      return Math.floor(Math.random() * Math.floor(max));
-    },
-
     btnPush(rIdx, cIdx) {
       console.log(this.bpm);
       console.log(`button pushed: (${rIdx}, ${cIdx})`);
       let basenum = rIdx * 4 + cIdx;
-      let idx = Math.floor((basenum * this.seed) % 5);
-      FirebaseTools.IncrementParam("action", "obj" + (idx + 1));
+      FirebaseTools.IncrementParam("action", "obj" + (basenum + 1));
     },
   },
   // beforeMount: function() {
