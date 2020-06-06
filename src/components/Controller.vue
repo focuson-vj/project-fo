@@ -48,8 +48,8 @@
 
 <script>
 // import { mapState } from 'vuex'
-import FirebaseTools from "../modules/FirebaseTools";
-import { mapState } from 'vuex';
+import FirebaseTools from '../modules/FirebaseTools'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Controller',
@@ -83,30 +83,23 @@ export default {
     ],
     seed: 1.0,
   }),
-  
+
   computed: {
     ...mapState(['count', 'bpm']),
   },
 
   created: function() {
-    this.$store.dispatch('getBpmData');
-    console.log("bpm is: " + this.bpm);
+    this.$store.dispatch('getBpmData')
+    console.log('bpm is: ' + this.bpm)
   },
 
   methods: {
-    // increment(index) {
-    //   this.$store.dispatch('increment', index)
-    // },
-
     btnPush(rIdx, cIdx) {
-      console.log(this.bpm);
-      console.log(`button pushed: (${rIdx}, ${cIdx})`);
-      let basenum = rIdx * 4 + cIdx;
-      FirebaseTools.IncrementParam("action", "obj" + (basenum + 1));
+      console.log(this.bpm)
+      console.log(`button pushed: (${rIdx}, ${cIdx})`)
+      let basenum = rIdx * 4 + cIdx
+      FirebaseTools.IncrementParam('action', 'obj' + (basenum + 1))
     },
   },
-  // beforeMount: function() {
-  //   this.$store.dispatch('init', 4)
-  // },
-};
+}
 </script>
