@@ -50,7 +50,6 @@
 // import { mapState } from 'vuex'
 import FirebaseTools from "../modules/FirebaseTools";
 import { mapState } from 'vuex';
-import { mapActions } from 'vuex';
 
 export default {
   name: 'Controller',
@@ -91,12 +90,11 @@ export default {
 
   created: function() {
     this.seed = Math.random() * 100;
-    this.getBpmData();
+    this.$store.dispatch('getBpmData');
     console.log("bpm is: " + this.bpm);
   },
-
+  
   methods: {
-    ...mapActions(['getBpmData']),
     // increment(index) {
     //   this.$store.dispatch('increment', index)
     // },
@@ -106,6 +104,7 @@ export default {
     },
 
     btnPush(rIdx, cIdx) {
+      console.log(this.bpm);
       console.log(`button pushed: (${rIdx}, ${cIdx})`);
       let basenum = rIdx * 4 + cIdx;
       let idx = Math.floor((basenum * this.seed) % 5);
