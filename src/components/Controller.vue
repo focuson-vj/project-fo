@@ -84,6 +84,7 @@ export default {
   // computed: {
   //   ...mapState(['count']),
   // },
+
   methods: {
     // increment(index) {
     //   this.$store.dispatch('increment', index)
