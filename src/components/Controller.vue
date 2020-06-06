@@ -93,7 +93,7 @@ export default {
     this.$store.dispatch('getBpmData');
     console.log("bpm is: " + this.bpm);
   },
-  
+
   methods: {
     // increment(index) {
     //   this.$store.dispatch('increment', index)
@@ -108,11 +108,7 @@ export default {
       console.log(`button pushed: (${rIdx}, ${cIdx})`);
       let basenum = rIdx * 4 + cIdx;
       let idx = Math.floor((basenum * this.seed) % 5);
-      if(idx == 0) FirebaseTools.IncrementParam("action", "obj1");
-      if(idx == 1) FirebaseTools.IncrementParam("action", "obj2");
-      if(idx == 2) FirebaseTools.IncrementParam("action", "obj3");
-      if(idx == 3) FirebaseTools.IncrementParam("action", "obj4");
-      if(idx == 4) FirebaseTools.IncrementParam("action", "obj5");
+      FirebaseTools.IncrementParam("action", "obj" + (idx + 1));
     },
   },
   // beforeMount: function() {
