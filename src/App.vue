@@ -19,7 +19,7 @@
       </v-list-item>
       <v-divider />
       <v-list nav>
-        <v-list-item v-for="menu in menus" :key="menu.title" :to="menu.url">
+        <!-- <v-list-item v-for="menu in menus" :key="menu.title" :to="menu.url">
           <v-list-item-icon>
             <v-icon>{{ menu.icon }}</v-icon>
           </v-list-item-icon>
@@ -27,6 +27,7 @@
             <v-list-item-title>{{ menu.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+         -->
       </v-list>
     </v-navigation-drawer>
 
@@ -47,6 +48,29 @@
     <Infomation />
   </v-app>
 </template>
+
+<style scoped>
+main {
+  background: linear-gradient(0deg, #1d1d1d 45%, #9c9c9c 50%, #1d1d1d 55%);
+  background-size: 400% 400%;
+
+  animation: Animation 1.2s ease infinite;
+}
+
+@keyframes Animation {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  /* 50% {
+    background-position: 0% 100%;
+  } */
+
+  100% {
+    background-position: 0% 100%;
+  }
+}
+</style>
 
 <script>
 import Controller from './components/Controller'
