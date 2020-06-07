@@ -22,3 +22,6 @@ yarn-error.log*
 
 # env param file
 src/firebase/env.json
+
+#cache file
+*.cache
