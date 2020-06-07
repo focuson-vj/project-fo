@@ -42,7 +42,10 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     </v-app-bar>
 
-    <v-content>
+    <v-content
+      class="background"
+      :style="{ animationDuration: `${(60 / this.bpm) * 4}s` }"
+    >
       <Controller />
     </v-content>
     <Infomation />
@@ -50,21 +53,17 @@
 </template>
 
 <style scoped>
-main {
-  background: linear-gradient(0deg, #1d1d1d 45%, #9c9c9c 50%, #1d1d1d 55%);
+.background {
+  background: linear-gradient(0deg, #1d1d1d 47.5%, #2e3744 50%, #1d1d1d 52.5%);
   background-size: 400% 400%;
-
-  animation: Animation 1.2s ease infinite;
+  animation-name: Animation;
+  animation-iteration-count: infinite;
 }
 
 @keyframes Animation {
   0% {
     background-position: 0% 0%;
   }
-
-  /* 50% {
-    background-position: 0% 100%;
-  } */
 
   100% {
     background-position: 0% 100%;
@@ -73,6 +72,7 @@ main {
 </style>
 
 <script>
+import { mapState } from 'vuex'
 import Controller from './components/Controller'
 import Infomation from './components/Information'
 
@@ -98,5 +98,9 @@ export default {
       { title: 'About', icon: 'mdi-information-variant', url: '/about' },
     ],
   }),
+
+  computed: {
+    ...mapState(['bpm']),
+  },
 }
 </script>

@@ -23,7 +23,6 @@
 </template>
 
 <script>
-// import { mapState } from 'vuex'
 import FirebaseTools from '../modules/FirebaseTools'
 import { mapState } from 'vuex'
 
@@ -59,12 +58,11 @@ export default {
         },
       ],
       styleObj: `height: auto`,
-
       seed: 1.0,
     }
   },
   computed: {
-    ...mapState(['count', 'bpm']),
+    ...mapState(['bpm']),
   },
 
   created: function() {
