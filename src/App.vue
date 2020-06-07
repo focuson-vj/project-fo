@@ -54,7 +54,7 @@
 
 <style scoped>
 .background {
-  background: linear-gradient(0deg, #1d1d1d 47.5%, #2e3744 50%, #1d1d1d 52.5%);
+  background: linear-gradient(0deg, #1d1d1d 47.5%, #4d4d4d 50%, #1d1d1d 52.5%);
   background-size: 400% 400%;
   animation-name: Animation;
   animation-iteration-count: infinite;

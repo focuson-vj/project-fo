@@ -103,10 +103,12 @@ export default {
 .button {
   vertical-align: middle;
   height: 100%;
-  /* border: 1px solid blue; */
   border-radius: 12px;
   background-color: #962626e7;
   position: relative;
+}
+.button:active {
+  filter: brightness(150%) saturate(130%);
 }
 .button-col {
   height: 100%;
