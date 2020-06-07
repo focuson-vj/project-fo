@@ -6,8 +6,7 @@ const IncrementParam = (_id, doc_id) => {
   let counterRef = db.collection(_id).doc(doc_id);
   counterRef
     .update({
-      push: 0,
-      pull: true,
+      doc_id: doc_id,
       count: firebase.firestore.FieldValue.increment(1)
     })
     .then(function() {
