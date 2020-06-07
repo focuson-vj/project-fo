@@ -90,6 +90,7 @@ export default {
 
   created: function() {
     this.$store.dispatch('getBpmData');
+    this.$store.dispatch('getActorData');
     console.log("bpm is: " + this.bpm);
   },
 
@@ -100,13 +101,14 @@ export default {
 
     btnPush(rIdx, cIdx) {
       console.log(this.bpm);
+      console.log(this.actors);
       console.log(`button pushed: (${rIdx}, ${cIdx})`);
       let basenum = rIdx * 4 + cIdx;
       FirebaseTools.IncrementParam("action", "obj" + (basenum + 1));
     },
   },
-  // beforeMount: function() {
-  //   this.$store.dispatch('init', 4)
-  // },
+  beforeMount: function() {
+    //this.$store.dispatch('init', 4)
+  },
 };
 </script>

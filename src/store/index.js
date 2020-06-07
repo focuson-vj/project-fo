@@ -8,11 +8,15 @@ export default new Vuex.Store({
   modules: {},
   state: {
     count: [],
-    bpm: 120
+    bpm: 120,
+    actors: []
   },
   mutations: {
     setBpmData: (state, bpm_data) => {
       state.bpm = bpm_data;
+    },
+    setActorData: (state, actor_data) => {
+      state.actors = actor_data;
     },
     increment: (state, { index, amount }) => {
       Vue.set(state.count, index, state.count[index] + amount)
@@ -31,6 +35,16 @@ export default new Vuex.Store({
       doc.onSnapshot(function(d) {
         bpm_data = d.data();
         commit('setBpmData', bpm_data.bpm);
+      });
+    },
+    getActorData: ({ commit }) => {
+      let doc = db.collection('actor');
+      doc.onSnapshot(function(querySnapshot) {
+        var actors = [];
+        querySnapshot.forEach(function(d) {
+          actors.push(d.data());
+        });
+        commit('setActorData', actors);
       });
     },
     increment: ({ commit }, index) => {
