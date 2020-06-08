@@ -67,7 +67,6 @@ export default {
 
   created: function() {
     this.$store.dispatch('getBpmData')
-    console.log('bpm is: ' + this.bpm)
   },
 
   methods: {
