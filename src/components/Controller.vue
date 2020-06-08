@@ -76,6 +76,7 @@ export default {
       console.log(`button pushed: (${rIdx}, ${cIdx})`)
       let basenum = rIdx * 4 + cIdx
       FirebaseTools.IncrementParam('action', 'obj' + (basenum + 1))
+      FirebaseTools.AddLogs('logs', 'obj' + (basenum + 1));
     },
     handleResize() {
       this.styleObj = `height:${(window.innerHeight - 130) / 6}px`

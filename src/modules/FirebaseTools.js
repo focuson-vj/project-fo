@@ -24,25 +24,20 @@ const ChangeEffect = () => {
 };
 
 // スライダー
-const Slider = () => {
-  return 0;
-};
-
-// BPM情報をFirestoreに格納する関数
-const bpmSender = () => {
-  return 0;
-};
-
-// bpm情報を待ち受けてonSnapshotで受け取って
-// 値をstoreに格納する関数
-const bpmReceiver = () => {
-  return 0;
+const AddLogs = (_id, doc_id) => {
+  let logRef = db.collection(_id);
+  logRef.add({
+    doc_id: doc_id,
+    time: firebase.firestore.Timestamp.fromDate(new Date(Date.now()))
+  }).then((docRef) => {
+    console.log("Document: ", docRef);
+  }).catch((error) => {
+    console.log("Log Error: ", error);
+  });
 };
 
 export default {
   IncrementParam,
   ChangeEffect,
-  Slider,
-  bpmSender,
-  bpmReceiver
+  AddLogs,
 };
