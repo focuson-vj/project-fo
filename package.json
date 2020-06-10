@@ -11,6 +11,7 @@
     "core-js": "^3.6.4",
     "firebase": "^7.14.3",
     "vue": "^2.6.11",
+    "vue-marquee-text-component": "^1.1.1",
     "vue-router": "^3.3.2",
     "vuetify": "^2.2.29",
     "vuex": "^3.4.0"
@@ -19,6 +20,7 @@
     "@babel/core": "^7.9.6",
     "@babel/plugin-transform-modules-commonjs": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "@vue/cli-plugin-babel": "~4.3.0",
     "@vue/cli-plugin-eslint": "~4.3.0",
     "@vue/cli-plugin-vuex": "~4.3.0",
