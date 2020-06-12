@@ -24,20 +24,21 @@
       style="font-size: 12px"
       :style="{ color: color.text.caption }"
     >
-      <MarqueeText :repeat="marqueeRepeat">{{ scrollText }}</MarqueeText>
+      <div class="scroll-innar" data-speed="0.8">
+        <span>
+          {{ scrollText }}
+        </span>
+      </div>
     </v-card>
   </v-footer>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import MarqueeText from 'vue-marquee-text-component'
+import Marquee from '@egstad/marquee'
 
 export default {
   name: 'Information',
-  components: {
-    MarqueeText,
-  },
   data: () => ({
     current: {
       dj: '',
@@ -125,6 +126,9 @@ export default {
       )
     },
   },
+  mounted: function() {
+    new Marquee('.scroll-innar')
+  },
   watch: {
     actors() {
       this.formatActor()
@@ -159,5 +163,9 @@ export default {
 .scroll {
   width: 100%;
   height: 24px;
+}
+
+.scroll-innar {
+  white-space: nowrap;
 }
 </style>
