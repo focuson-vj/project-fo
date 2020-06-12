@@ -74,7 +74,7 @@ export default {
 
         this.current = {
           dj: dontFinishedActors[0].name,
-          time: `-${time.getHours()}:${time.getMinutes()}`,
+          time: `-${this.getHHmm(time)}`,
           index: this.actors.length - dontFinishedActors,
         }
 
@@ -149,6 +149,7 @@ export default {
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
   -webkit-transform: translateY(-50%) translateX(-50%);
+  white-space: nowrap;
 }
 
 .current-right {
