@@ -3,13 +3,14 @@
     <v-row
       v-for="(row, rIdx) in buttons"
       :key="row.id"
-      :style="styleObj"
+      :style="vRowStyleObj"
       class="button-row"
     >
       <v-col
         v-for="(col, cIdx) in row.cols"
         :key="cIdx"
         cols="3"
+        :style="vColStyleObj"
         class="button-col"
       >
         <div class="button" @click="btnPush(rIdx, cIdx)">
@@ -57,7 +58,9 @@ export default {
           cols: ['あ', 'い', 'う', 'え'],
         },
       ],
-      styleObj: `height: auto`,
+      vRowStyleObj: `height: auto`,
+      vColStyleObj: `filter: hue-rotate(0deg)`,
+      theta: 0,
       seed: 1.0,
     }
   },
@@ -77,12 +80,21 @@ export default {
       FirebaseTools.IncrementParam('action', 'obj' + (basenum + 1))
     },
     handleResize() {
-      this.styleObj = `height:${(window.innerHeight - 130) / 6}px`
+      this.vRowStyleObj = `height:${(window.innerHeight - 130) / 6}px`
+    },
+    rotateHue() {
+      this.theta++
+      if (this.theta == 360) {
+        this.theta = 0
+      }
+      this.vColStyleObj = `filter: hue-rotate(${this.theta}deg)`
+      setTimeout(this.rotateHue, 500)
     },
   },
   mounted: function() {
     window.addEventListener('resize', this.handleResize)
     this.handleResize()
+    this.rotateHue()
   },
   beforeDestroy: function() {
     window.removeEventListener('resize', this.handleResize)
