@@ -74,10 +74,9 @@ export default {
 
   methods: {
     btnPush(rIdx, cIdx) {
-      console.log(this.bpm)
-      console.log(`button pushed: (${rIdx}, ${cIdx})`)
-      let basenum = rIdx * 4 + cIdx
-      FirebaseTools.IncrementParam('action', 'obj' + (basenum + 1))
+      let basenum = rIdx * 4 + cIdx;
+      FirebaseTools.IncrementParam('action', 'obj' + (basenum + 1));
+      FirebaseTools.AddLogs('logs', 'obj' + (basenum + 1));
     },
     handleResize() {
       this.vRowStyleObj = `height:${(window.innerHeight - 130) / 6}px`
