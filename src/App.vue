@@ -61,8 +61,10 @@
 
     <v-app-bar app right dark>
       <!-- アプリケーションバー -->
-      <v-toolbar-title class="title">{{ this.appName }}</v-toolbar-title>
-      <v-avatar>
+      <v-toolbar-title class="title" @click="reload">{{
+        this.appName
+      }}</v-toolbar-title>
+      <v-avatar @click="reload">
         <img src="./assets/focuson_logo.png" alt="Logo of Focus On!" />
       </v-avatar>
 
@@ -91,6 +93,7 @@
   background-size: 400% 400%;
   animation-name: Animation;
   animation-iteration-count: infinite;
+  margin-top: -36px;
 }
 
 @keyframes Animation {
@@ -168,6 +171,9 @@ export default {
           url: location.href,
         })
       }
+    },
+    reload() {
+      location.reload()
     },
   },
 }
