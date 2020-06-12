@@ -83,9 +83,9 @@ export default {
       this.vRowStyleObj = `height:${(window.innerHeight - 130) / 6}px`
     },
     rotateHue() {
-      this.theta++
-      if (this.theta == 360) {
-        this.theta = 0
+      this.theta--
+      if (this.theta < 0) {
+        this.theta = 360
       }
       this.vColStyleObj = `filter: hue-rotate(${this.theta}deg)`
       setTimeout(this.rotateHue, 500)
