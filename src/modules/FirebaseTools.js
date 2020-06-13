@@ -36,19 +36,6 @@ const ChangeEffect = () => {
   return 0;
 };
 
-// スライダー
-const AddLogs = (_id, doc_id) => {
-  let logRef = db.collection(_id);
-  logRef.add({
-    doc_id: doc_id,
-    time: firebase.firestore.Timestamp.fromDate(new Date(Date.now()))
-  }).then((docRef) => {
-    console.log("Document: ", docRef);
-  }).catch((error) => {
-    console.log("Log Error: ", error);
-  });
-};
-
 export default {
   IncrementParam,
   ChangeEffect,
