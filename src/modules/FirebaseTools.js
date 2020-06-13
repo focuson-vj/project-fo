@@ -10,11 +10,24 @@ const IncrementParam = (_id, doc_id) => {
       count: firebase.firestore.FieldValue.increment(1)
     })
     .then(function() {
-      console.log("Document written!");
+
     })
     .catch(function(error) {
       console.error("Error adding document: ", error);
     });
+};
+
+// スライダー
+const AddLogs = (_id, doc_id) => {
+  let logRef = db.collection(_id);
+  logRef.add({
+    doc_id: doc_id,
+    time: firebase.firestore.Timestamp.fromDate(new Date(Date.now()))
+  }).then(() => {
+
+  }).catch((error) => {
+    console.log("Log Error: ", error);
+  });
 };
 
 // エフェクトを変更する関数
@@ -39,5 +52,5 @@ const AddLogs = (_id, doc_id) => {
 export default {
   IncrementParam,
   ChangeEffect,
-  AddLogs,
+  AddLogs
 };
