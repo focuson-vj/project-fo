@@ -125,9 +125,18 @@ export default {
         ('0' + date.getMinutes()).slice(-2)
       )
     },
+    onVisible() {
+      if (document.visibilityState == 'visible') {
+        this.formatActor()
+      }
+    },
   },
   mounted: function() {
     new Marquee('.scroll-innar')
+    document.addEventListener('visibilitychange', this.onVisible)
+  },
+  beforeDestroy: function() {
+    document.removeEventListener('visibilitychange', this.onVisible)
   },
   watch: {
     actors() {
