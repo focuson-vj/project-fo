@@ -1,41 +1,45 @@
 # project-fo
 
-このプロジェクトは、スマートフォンでリアルタイムに遠隔地にOSCを送るアプリケーションです。私達はこのソフトウェアを[RemoSync](https://project-fo.web.app)というVJシステムのために作りました。
+このプロジェクトは、スマートフォンでリアルタイムに遠隔地に OSC を送るアプリケーションです。私達はこのソフトウェアを[RemoSync](https://project-fo.web.app)という VJ システムのために作りました。
 
 ## Description
 
-FirebaseのFirestoreを使うことでサーバレスでフロントエンドからクライアントにOSCを送れます。ユーザの操作をFirestoreにアップロードするVue.js製のアプリケーション(このレポジトリ)とFirestoreの変更を検知してOSCを送信するアプリケーション([MountConverter](https://github.com/focuson-vj/MountConverter))をセットで利用します。
-
+Firebase の Firestore を使ってサーバレスでフロントエンドからクライアントに OSC を送るアプリケーションです。ユーザの操作を Firestore にアップロードする Vue.js 製のコントローラアプリケーション(このレポジトリ)と Firestore の変更を検知して VJ ソフトなどに OSC を送信するアプリケーション([MountConverter](https://github.com/focuson-vj/MountConverter))をセットで利用します。
 
 ## Frontend
 
 Vue.js + Vuex で構成しています。
-* `src\App.vue`: アプリケーションページ
-* `src\components\Controller.vue`:	4x6マトリクスのコントローラ
-* `src\components\Information.vue`: プレイ中のDJ情報の表示部
 
+- `src\App.vue`: アプリケーションページ
+- `src\components\Controller.vue`: 4x6 マトリクスのコントローラ
+- `src\components\Information.vue`: プレイ中の DJ 情報の表示部
 
 ## Project setup
+
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 npm run serve
 ```
 
 ### Compiles and minifies for production
+
 ```
 npm run build
 ```
 
 ### Lints and fixes files
+
 ```
 npm run lint
 ```
 
 ### Deploy
+
 ```
 npm install -g firebase-tools
 npm run build
@@ -44,10 +48,13 @@ firebase deploy
 ```
 
 ### Customize configuration
+
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Licence
+
 MIT
 
 ## Author
+
 Focus On! VJ Team
