@@ -1,11 +1,6 @@
 <template>
   <v-container>
-    <v-row
-      v-for="(row, rIdx) in buttons"
-      :key="row.id"
-      :style="vRowStyleObj"
-      class="button-row"
-    >
+    <v-row v-for="(row, rIdx) in buttons" :key="row.id" :style="vRowStyleObj" class="button-row">
       <v-col
         v-for="(col, cIdx) in row.cols"
         :key="cIdx"
@@ -74,9 +69,9 @@ export default {
 
   methods: {
     btnPush(rIdx, cIdx) {
-      let basenum = rIdx * 4 + cIdx;
-      FirebaseTools.IncrementParam('action', 'obj' + (basenum + 1));
-      FirebaseTools.AddLogs('logs', 'obj' + (basenum + 1));
+      let basenum = rIdx * 4 + cIdx
+      FirebaseTools.IncrementParam('action', 'obj' + (basenum + 1))
+      FirebaseTools.AddLogs('logs', 'obj' + (basenum + 1))
     },
     handleResize() {
       this.vRowStyleObj = `height:${(window.innerHeight - 130) / 6}px`

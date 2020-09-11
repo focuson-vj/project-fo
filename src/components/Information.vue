@@ -9,21 +9,13 @@
       :style="{ color: color.text.body }"
     >
       <span class="current-left "> DJ </span>
-      <span
-        class="current-center headline"
-        :style="{ color: color.text.accent }"
-      >
+      <span class="current-center headline" :style="{ color: color.text.accent }">
         {{ current.dj }}
       </span>
       <span class="current-right"> {{ current.time }} </span>
     </v-card>
     <!-- スクロールの部分 -->
-    <v-card
-      ref="sc"
-      class="scroll"
-      style="font-size: 12px"
-      :style="{ color: color.text.caption }"
-    >
+    <v-card ref="sc" class="scroll" style="font-size: 12px" :style="{ color: color.text.caption }">
       <div class="scroll-innar" data-speed="0.8">
         <span>
           {{ scrollText }}
@@ -66,7 +58,7 @@ export default {
     formatActor() {
       const now = new Date()
 
-      const dontFinishedActors = this.actors.filter((actor) => {
+      const dontFinishedActors = this.actors.filter(actor => {
         return actor.time.toDate() > now
       })
 
@@ -86,10 +78,7 @@ export default {
         clearTimeout(this.timeoutId)
         // 新しくtimeoutをset
         // 演者が変わるタイミングで発火
-        this.timeoutId = setTimeout(
-          this.formatActor,
-          time.getTime() - now.getTime()
-        )
+        this.timeoutId = setTimeout(this.formatActor, time.getTime() - now.getTime())
       }
 
       //  スクロールするテキストの変更
@@ -108,9 +97,9 @@ export default {
         const endOfNext = new Date(dontFinishedActors[1].time * 1000)
         const startOfNext = new Date(dontFinishedActors[0].time * 1000)
         scrollText =
-          `Next ▶ ${dontFinishedActors[1].name} ▶ ${this.getHHmm(
-            startOfNext
-          )}-${this.getHHmm(endOfNext)}` + scrollText
+          `Next ▶ ${dontFinishedActors[1].name} ▶ ${this.getHHmm(startOfNext)}-${this.getHHmm(
+            endOfNext
+          )}` + scrollText
         this.scrollText = scrollText + this.nbsp
       } else if (dontFinishedActors.length > 0) {
         this.scrollText = 'The DJ currently playing is the last' + this.nbsp
@@ -119,11 +108,7 @@ export default {
       }
     },
     getHHmm(date) {
-      return (
-        ('0' + date.getHours()).slice(-2) +
-        ':' +
-        ('0' + date.getMinutes()).slice(-2)
-      )
+      return ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2)
     },
     onVisible() {
       if (document.visibilityState == 'visible') {

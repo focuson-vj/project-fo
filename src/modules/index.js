@@ -1,5 +1,5 @@
-"use strict";
-import { FirebaseTools } from "./FirebaseTools";
+'use strict'
+import { FirebaseTools } from './FirebaseTools'
 
 // モジュールのテスト用
-console.log(FirebaseTools);
+console.log(FirebaseTools)
