@@ -1,6 +1,6 @@
-import ENV from "./env.json";
-import firebase from "firebase/app";
-import "firebase/firestore";
+import ENV from './env.json'
+import firebase from 'firebase/app'
+import 'firebase/firestore'
 
 const config = {
   apiKey: ENV.FIREBASE_API_KEY,
@@ -10,12 +10,10 @@ const config = {
   storageBucket: ENV.FIREBASE_STORAGE,
   messagingSenderId: ENV.FIREBASE_SENDER_ID,
   appId: ENV.FIREBASE_APP_ID,
-  measurementId: ENV.FIREBASE_MEASUREMENT_ID
-};
-firebase.initializeApp(config);
-
-const db = firebase.firestore();
-
-export {
-  firebase, db
+  measurementId: ENV.FIREBASE_MEASUREMENT_ID,
 }
+firebase.initializeApp(config)
+
+const db = firebase.firestore()
+
+export { firebase, db }

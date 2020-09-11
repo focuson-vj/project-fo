@@ -12,19 +12,14 @@
         <v-card-text style="text-align: justify;">
           <p style="margin:0;">
             ボタンを押すと対応するエフェクトが配信映像に合成されます。<br />
-            気持ちが高ぶったその瞬間に、ボタンを押しまくって Focus On!
-            を一緒に盛り上げましょう！
+            気持ちが高ぶったその瞬間に、ボタンを押しまくって Focus On! を一緒に盛り上げましょう！
           </p>
         </v-card-text>
 
         <v-list dense>
           <v-subheader>リンク</v-subheader>
           <v-list-item-group color="primary">
-            <v-list-item
-              v-for="(item, i) in items"
-              :key="i"
-              @click="openLink(item.link)"
-            >
+            <v-list-item v-for="(item, i) in items" :key="i" @click="openLink(item.link)">
               <v-list-item-icon>
                 <v-icon v-text="item.icon"></v-icon>
               </v-list-item-icon>
@@ -61,9 +56,7 @@
 
     <v-app-bar app right dark>
       <!-- アプリケーションバー -->
-      <v-toolbar-title class="title" @click="reload">{{
-        this.appName
-      }}</v-toolbar-title>
+      <v-toolbar-title class="title" @click="reload">{{ this.appName }}</v-toolbar-title>
       <v-avatar @click="reload">
         <img src="./assets/focuson_logo.png" alt="Logo of Focus On!" />
       </v-avatar>
@@ -71,16 +64,11 @@
       <v-spacer></v-spacer>
       <div>
         <v-icon class="icon" @click="shere()">fas fa-share-alt </v-icon>
-        <v-icon class="icon" @click.stop="dialog = !dialog"
-          >fas fa-info-circle
-        </v-icon>
+        <v-icon class="icon" @click.stop="dialog = !dialog">fas fa-info-circle </v-icon>
       </div>
     </v-app-bar>
 
-    <v-content
-      class="background"
-      :style="{ animationDuration: `${(60 / this.bpm) * 4}s` }"
-    >
+    <v-content class="background" :style="{ animationDuration: `${(60 / this.bpm) * 4}s` }">
       <Controller />
     </v-content>
     <Infomation />
